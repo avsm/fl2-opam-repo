@@ -1,0 +1,42 @@
+name: Main workflow
+
+on:
+  pull_request:
+  push:
+      branches:
+        - main
+  schedule:
+    # Prime the caches every Monday
+    - cron: 0 1 * * MON
+
+env:
+  OPAMYES: 1
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout opam flambda2 repo
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          path: 'fl2-opam-repo'
+
+      - name: Checkout main opam repository repo
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          repository: 'ocaml/opam-repository'
+          path: 'opam-repo'
+
+      - run: opam init -ayn --bare ./opam-repo
+      - run: opam repo add -a fl2 ./fl2-opam-repo
+      - run: opam switch create ocaml.5.1.1+flambda2
