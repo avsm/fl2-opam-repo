@@ -45,5 +45,6 @@ jobs:
           fi
       - run: opam init -ayn --bare ./main-opam-repo
       - run: find ./flambda2-opam-repo && opam repo add -a fl2 ./flambda2-opam-repo && opam update
+      - run: opam repo
       - run: opam switch list-available
       - run: opam switch create fl2 5.1.1+flambda2
