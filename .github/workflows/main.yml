@@ -37,6 +37,7 @@ jobs:
           repository: 'ocaml/opam-repository'
           path: 'opam-repo'
 
+      - run: brew install opam
       - run: opam init -ayn --bare ./opam-repo
       - run: opam repo add -a fl2 ./fl2-opam-repo
       - run: opam switch create ocaml.5.1.1+flambda2
