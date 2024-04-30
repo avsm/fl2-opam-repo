@@ -43,5 +43,5 @@ jobs:
           elif [ "${{ runner.os }}" = "Linux" ]; then
             sudo apt-get update && sudo apt-get install -y opam
           fi
-      - run: opam init -ayn --bare ./main-opam-repo
+      - run: opam init -ayn --disable-sandboxing --bare ./main-opam-repo
       - run: opam switch create -v flambda2 --repositories=default,fl2=flambda2-opam-repo 5.1.1+flambda2
