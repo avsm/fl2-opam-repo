@@ -45,4 +45,4 @@ jobs:
           fi
       - run: opam init -ayn --bare ./main-opam-repo
 #      - run: opam repo add --set-default fl2 ./flambda2-opam-repo
-      - run: opam switch create flambda2 --repositories=fl2=flambda2-opam-repo 5.1.1+flambda2
+      - run: opam switch create flambda2 --repositories=default,fl2=flambda2-opam-repo 5.1.1+flambda2
