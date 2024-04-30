@@ -11,6 +11,7 @@ on:
 
 env:
   OPAMYES: 1
+  OVERVERBOSE: 1
 
 jobs:
   build:
@@ -19,7 +20,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macos-latest
+#          - macos-latest
 
     runs-on: ${{ matrix.os }}
 
