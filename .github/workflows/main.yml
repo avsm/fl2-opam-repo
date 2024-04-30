@@ -44,5 +44,5 @@ jobs:
             sudo apt-get update && sudo apt-get install -y opam
           fi
       - run: opam init -ayn --bare ./opam-repo
-      - run: opam repo add -a fl2 ./fl2-opam-repo && opam update
+      - run: find ./fl2-opam-repo && opam repo add -a fl2 ./fl2-opam-repo && opam update
       - run: opam switch create fl2 5.1.1+flambda2
