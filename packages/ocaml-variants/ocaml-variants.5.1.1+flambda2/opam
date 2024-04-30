@@ -11,7 +11,7 @@ depends: [
   "conf-autoconf" {build}
 ]
 conflict-class: "ocaml-core-compiler"
-flags: compiler
+flags: [ compiler avoid-version ]
 setenv: CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"
 build-env: [ PATH += "%{ocaml-secondary-compiler:share}%/bin:%{dune-secondary:share}%/bin:%{menhir-secondary:share}%/bin" ]
 build: [
