@@ -6,6 +6,7 @@ depends: [
   "base-unix" {post}
   "base-bigarray" {post}
   "base-threads" {post}
+  "base-flambda2" {post}
   "dune-secondary" {="3.8.1"}
   "menhir-secondary"
   "conf-autoconf" {build}
