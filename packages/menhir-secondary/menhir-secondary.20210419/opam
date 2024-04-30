@@ -10,6 +10,8 @@ bug-reports: "https://gitlab.inria.fr/fpottier/menhir/-/issues"
 license: "LGPL-2.0-only WITH OCaml-LGPL-linking-exception"
 build-env: [ PATH += "%{ocaml-secondary-compiler:share}%/bin:%{dune-secondary:share}%/bin" ]
 build: [
+  ["env"]
+  ["opam" "info" "--list-files" "dune-secondary"]
   ["dune" "build" "-j" jobs]
 ]
 install: [
