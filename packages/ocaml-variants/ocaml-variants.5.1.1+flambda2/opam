@@ -25,7 +25,7 @@ maintainer: "anil@recoil.org"
 homepage: "https://github.com/ocaml-flambda/flambda-backend/"
 bug-reports: "https://github.com/ocaml-flambda/flambda-backend/issues"
 url {
-  src: "https://github.com/ocaml-flambda/flambda-backend/archive/main.tar.gz"
+  src: "https://github.com/ocaml-flambda/flambda-backend/archive/5.1.1minus-13.tar.gz"
 }
 authors: [ "The Jane Street compiler team"
   "Xavier Leroy"
