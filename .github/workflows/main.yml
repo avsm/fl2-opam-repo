@@ -37,11 +37,11 @@ jobs:
           repository: 'ocaml/opam-repository'
           path: 'main-opam-repo'
 
-      - run: |
-          if [ "${{ runner.os }}" = "macOS" ]; then
-            brew install opam autoconf
-          elif [ "${{ runner.os }}" = "Linux" ]; then
-            sudo apt-get update && sudo apt-get install -y opam
-          fi
-      - run: opam init -ayn --disable-sandboxing --bare ./main-opam-repo
-      - run: opam switch create -v flambda2 --repositories=default,fl2=flambda2-opam-repo 5.1.1+flambda2
+      - name: Install opam
+        run: sudo apt-get update && sudo apt-get install -y opam
+      - name: Initialise opam
+        run: opam init -ayn --disable-sandboxing --bare ./main-opam-repo
+      - name: Install flambda2 compiler
+        run: opam switch create -v flambda2 --repositories=default,fl2=flambda2-opam-repo 5.1.1+flambda2
+      - name: Install packages
+        run: opam install -y `cat packages.txt`
