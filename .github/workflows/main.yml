@@ -44,4 +44,4 @@ jobs:
       - name: Install flambda2 compiler
         run: opam switch create -v flambda2 --repositories=default,fl2=flambda2-opam-repo 5.1.1+flambda2
       - name: Install packages
-        run: opam install -y `cat packages.txt`
+        run: opam install -y `cat flambda2-opam-repo/packages.txt`
