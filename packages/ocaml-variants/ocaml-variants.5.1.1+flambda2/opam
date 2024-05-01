@@ -19,7 +19,8 @@ build: [
   ["sh" "-exc" "PATH=%{ocaml-secondary-compiler:share}%/bin:%{dune-secondary:share}%/bin:%{menhir-secondary:share}%/bin:$PATH ./configure --prefix=%{prefix}% --enable-flambda2 --enable-runtime5=yes"]
   ["sh" "-exc" "PATH=%{ocaml-secondary-compiler:share}%/bin:%{dune-secondary:share}%/bin:%{menhir-secondary:share}%/bin:$PATH make -j"]
 ]
-install: [make "install"]
+install:
+  ["sh" "-exc" "PATH=%{ocaml-secondary-compiler:share}%/bin:%{dune-secondary:share}%/bin:%{menhir-secondary:share}%/bin:$PATH make install"]
 maintainer: "anil@recoil.org"
 homepage: "https://github.com/ocaml-flambda/flambda-backend/"
 bug-reports: "https://github.com/ocaml-flambda/flambda-backend/issues"
